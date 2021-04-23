@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  marsInTheRoom2
+//  marsInTheRoom
 //
 //  Created by Lissette Figueroa on 4/22/21.
 //
@@ -8,6 +8,10 @@
 import UIKit
 import SceneKit
 import ARKit
+
+//1. Your own scene + Add objects
+//2. Create your own scene + ADD Objects and its functionalities with code
+//
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -22,11 +26,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        //Sphere
         
-        // Set the scene to the view
-        sceneView.scene = scene
+        let sphere = SCNSphere(radius: 0.5)
+        
+                //        Material
+        // who.what -> value
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named:"art.scnassets/jupiter.jpeg")
+        
+        sphere.materials = [material]
+
+                //        //Node Initialization
+        
+        let node = SCNNode()
+
+                //        Node Position,
+        node.position = SCNVector3(x: 0, y:0, z: 1)
+        
+                //        Node Geometry
+        node.geometry = sphere
+                //        Add to scene
+        
+        sceneView.scene.rootNode.addChildNode(node)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
