@@ -35,7 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named:"art.scnassets/jupiter.jpeg")
         
-        sphere.materials = [material]
+        sphere.materials = [material] 
 
                 //        //Node Initialization
         
